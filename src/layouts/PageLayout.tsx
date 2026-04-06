@@ -48,7 +48,7 @@ const PageLayout = ({
   const newsletter = useNewsletter(newsletterDelay);
   const search     = useSearch();
 
-  return (
+    return (
     <div style={{ position: "relative", minHeight: "100vh", minWidth: "100%", background: "#000" }}>
       {/* ── Global overlays (rendered above everything) ── */}
       <NewsletterBanner

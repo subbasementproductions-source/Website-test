@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import * as React from "react";
 
 /**
  * Manages search overlay state and input focus.
@@ -6,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 const useSearch = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery]   = useState("");
-  const inputRef = useRef<HTMLInputElement>({});
+  const inputRef = useRef<HTMLInputElement>(null);
   const open  = () => setIsOpen(true);
   const close = () => { setIsOpen(false); setQuery(""); };
 
@@ -17,7 +18,7 @@ const useSearch = () => {
 
   // Close on Escape key
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent<HTMLElement>) => { if (e.key === "Escape") close(); };
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, []);

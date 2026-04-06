@@ -8,7 +8,7 @@ interface SearchOverlayProp {
   query: string,
   onChange: (val: string) => void,
   onSubmit: (e?: React.SyntheticEvent<HTMLElement>) => void,
-  inputRef: RefObject<HTMLInputElement>,
+  inputRef: RefObject<HTMLInputElement|null>,
 }
 
 /**
